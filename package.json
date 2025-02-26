@@ -1,0 +1,28 @@
+{
+  "name": "honeymoon_viz",
+  "version": "1.0.0",
+  "description": "OpenGL based projector visualization for the 2025 Honeymoon",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/treuille/honeymoon_viz.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/treuille/honeymoon_viz/issues"
+  },
+  "homepage": "https://github.com/treuille/honeymoon_viz#readme",
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "typescript": "^5.7.3"
+  },
+  "scripts": {
+    "build": "tsc --watch",
+    "serve": "live-server --port=3000 --no-browser --wait=100 dist",
+    "dev": "npm run build & npm run serve"
+  }

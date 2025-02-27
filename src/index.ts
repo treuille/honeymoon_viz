@@ -1,15 +1,13 @@
-// Indicate that the script has been reloaded by write a timestamp to the console
-console.log('Script reloaded:', new Date());
-
 document.addEventListener("DOMContentLoaded", () => {
+    // Indicate that the script has been reloaded by write a timestamp to the console
+    console.log('Script reloaded:', new Date());
+
     let popupWindow: Window | null = null;
     const sliderValues = {
         a: 50,
         b: 50,
         c: 50
     };
-
-    // No color preview needed
 
     // Handle sliders
     const sliders = ["a", "b", "c"];
@@ -74,17 +72,17 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         };
 
-        // Request fullscreen mode when popup loads
-        setTimeout(() => {
-            if (popupWindow && !popupWindow.closed) {
-                // Try to make fullscreen
-                try {
-                    popupWindow.document.documentElement.requestFullscreen();
-                } catch (e) {
-                    console.error("Couldn't enter fullscreen mode:", e);
-                }
-            }
-        }, 500);
+        //// Request fullscreen mode when popup loads
+        //setTimeout(() => {
+        //    if (popupWindow && !popupWindow.closed) {
+        //        // Try to make fullscreen
+        //        try {
+        //            popupWindow.document.documentElement.requestFullscreen();
+        //        } catch (e) {
+        //            console.error("Couldn't enter fullscreen mode:", e);
+        //        }
+        //    }
+        //}, 500);
     });
 });
 

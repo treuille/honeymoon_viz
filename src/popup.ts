@@ -3,21 +3,9 @@ let redValue = 0.5;
 let greenValue = 0.5;
 let blueValue = 0.5;
 
-// Removed tracking of initial values
-
-// Reload functionality has been removed
-
-// This function has been removed as we no longer use localStorage
-
 // Add a more prominent console message at the very beginning
 console.log('%c POPUP LOADED ', 'background: #222; color: #bada55; font-size: 16px;');
-
-// File polling functionality has been removed
-
-// Only set up message listener for color updates
-window.addEventListener('message', (event) => {
-    console.log('Received message from parent:', event.data);
-});
+console.log('%c POPUP LOADED ', 'background: #222; color: #bada55; font-size: 16px;');
 
 // Initialize WebGL
 document.addEventListener('DOMContentLoaded', () => {
@@ -29,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
             infoOverlay.classList.add('hide-overlay');
         }, 3000);
     }
-    
+
     const canvas = document.getElementById('webgl-canvas') as HTMLCanvasElement;
     const gl = canvas.getContext('webgl');
 
@@ -65,12 +53,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Listen for messages from parent window
     window.addEventListener('message', (event) => {
+        console.log('Received message from parent:', event.data);
         if (event.data.type === 'updateColor') {
             // Update our local variables
             redValue = event.data.red / 100;
             greenValue = event.data.green / 100;
             blueValue = event.data.blue / 100;
-            
+
             // Update the display
             updateClearColor(redValue, greenValue, blueValue);
         }
@@ -78,20 +67,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Support for entering full screen mode with overlay
     document.addEventListener('click', () => {
-        console.log('Click detected - toggling fullscreen');
-        
-        // Show the info overlay briefly when toggling fullscreen
-        const infoOverlay = document.getElementById('info-overlay');
-        if (infoOverlay) {
-            // Remove the 'hide-overlay' class to make it visible
-            infoOverlay.classList.remove('hide-overlay');
-            
-            // Hide it again after a few seconds
-            setTimeout(() => {
-                infoOverlay.classList.add('hide-overlay');
-            }, 3000);
-        }
-        
         // Toggle fullscreen
         if (!document.fullscreenElement) {
             // Enter fullscreen

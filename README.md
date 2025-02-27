@@ -55,16 +55,17 @@ honeymoon_viz/
 
 #### Todo
 
-- [ ] GitHub commit
+- [x] GitHub commit
 - [ ] Reread all the files
-    - [ ] index.ts
-    - [ ] popup.ts
-    - [ ] index.html
-    - [ ] popup.html
+    - [x] index.html
+    - [x] index.ts
+    - [x] popup.html
+    - [x] popup.ts
 - [ ] GitHub commit
-- [ ] Remove extra chrome
+- [ ] Cleanup the code
     - [ ] index.html
     - [ ] popup.html
+       - [ ] Use tailwind css to do all the styling on the canvas
 - [ ] GitHub commit
 - [ ] Refactor the state
    - [ ] put it all into a single piece of JSON
@@ -76,7 +77,12 @@ honeymoon_viz/
 - [ ] GitHub commit
 - [ ] Start doing animated vis..
 
-TBD
+### Milestone 2: Nicer looking viz
+
+#### Ideas
+
+- Is there a perspective mode that I could create which would invert the
+  perspective that we're seeing on the trees?
 
 ### Milestone 3: Make everything look pretty
 

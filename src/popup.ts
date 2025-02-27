@@ -1,11 +1,33 @@
+// Add type declaration for the tailwind property on window
+declare global {
+    interface Window {
+        tailwind?: {
+            config: any;
+        };
+    }
+}
+
 // Default color values
 let redValue = 0.5;
 let greenValue = 0.5;
 let blueValue = 0.5;
 
-// Add a more prominent console message at the very beginning
-console.log('%c POPUP LOADED ', 'background: #222; color: #bada55; font-size: 16px;');
-console.log('%c POPUP LOADED ', 'background: #222; color: #bada55; font-size: 16px;');
+// Configure Tailwind if it exists
+if (typeof window.tailwind !== 'undefined') {
+    window.tailwind.config = {
+        darkMode: 'class',
+        theme: {
+            extend: {
+                transitionProperty: {
+                    'opacity': 'opacity'
+                },
+                transitionDuration: {
+                    '1000': '1000ms'
+                }
+            }
+        }
+    };
+}
 
 // Initialize WebGL
 document.addEventListener('DOMContentLoaded', () => {
@@ -14,7 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (infoOverlay) {
         // Hide overlay after a few seconds
         setTimeout(() => {
-            infoOverlay.classList.add('hide-overlay');
+            infoOverlay.classList.remove('opacity-100');
+            infoOverlay.classList.add('opacity-0');
         }, 3000);
     }
 
@@ -67,6 +90,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Support for entering full screen mode with overlay
     document.addEventListener('click', () => {
+        // Show the info overlay briefly when toggling fullscreen
+        const infoOverlay = document.getElementById('info-overlay');
+        if (infoOverlay) {
+            // Make it visible
+            infoOverlay.classList.remove('opacity-0');
+            infoOverlay.classList.add('opacity-100');
+            
+            // Hide it again after a few seconds
+            setTimeout(() => {
+                infoOverlay.classList.remove('opacity-100');
+                infoOverlay.classList.add('opacity-0');
+            }, 3000);
+        }
+        
         // Toggle fullscreen
         if (!document.fullscreenElement) {
             // Enter fullscreen

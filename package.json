@@ -26,3 +26,4 @@
     "serve": "live-server --port=3000 --no-browser --wait=100 dist",
     "dev": "npm run build & npm run serve"
   }
+}

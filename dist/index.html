@@ -4,22 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Slider Visualization</title>
-    <script src="dist/index.js" defer></script>
+    <script src="index.js" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        //tailwind.config = {
+        //    darkMode: 'class',
+        //    theme: {
+        //        extend: {}
+        //    }
+        //}
+    </script>
 </head>
-<body class="flex flex-col items-center p-6 space-y-4">
-    <div> Hello, from Adrien G. Treuille!!</div>
-    <div class="flex flex-col items-center">
-        <label class="text-lg">A Value: <span id="a-value">50</span></label>
-        <input type="range" id="a" min="0" max="100" value="50" class="w-64">
+<body class="flex flex-col items-center p-6 space-y-4 bg-gray-900 text-white">
+    <h1 class="text-2xl font-bold mb-4">Honeymoon 2025 Visualizer</h1>
+
+    <div class="flex flex-col items-center mb-4">
+        <label class="text-lg text-red-500 font-bold mb-2">Red: <span id="a-value">50</span></label>
+        <input type="range" id="a" min="0" max="100" value="50" class="w-72 accent-red-500">
     </div>
-    <div class="flex flex-col items-center">
-        <label class="text-lg">B Value: <span id="b-value">50</span></label>
-        <input type="range" id="b" min="0" max="100" value="50" class="w-64">
+    <div class="flex flex-col items-center mb-4">
+        <label class="text-lg text-green-500 font-bold mb-2">Green: <span id="b-value">50</span></label>
+        <input type="range" id="b" min="0" max="100" value="50" class="w-72 accent-green-500">
     </div>
-    <div class="flex flex-col items-center">
-        <label class="text-lg">C Value: <span id="c-value">50</span></label>
-        <input type="range" id="c" min="0" max="100" value="50" class="w-64">
+    <div class="flex flex-col items-center mb-4">
+        <label class="text-lg text-blue-500 font-bold mb-2">Blue: <span id="c-value">50</span></label>
+        <input type="range" id="c" min="0" max="100" value="50" class="w-72 accent-blue-500">
+    </div>
+
+    <div class="mt-8 pt-8">
+        <button id="launch-webgl" class="bg-purple-700 hover:bg-purple-900 text-white font-bold py-3 px-6 rounded-lg shadow-lg transform transition-transform duration-200 hover:scale-105">
+            Fullscreen Visualization
+        </button>
     </div>
 </body>
 </html>
